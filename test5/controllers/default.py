@@ -28,11 +28,11 @@ def index():
     """
     lets users login or logout
     """
+    response.flash = 'how to use this website: first you need to logout to homepage you will only see the post but cannot edit it. When you creat your account you can publish and edit it. This website also have a manager model but you can not access it. It need my email and password.'
     form = SQLFORM(db.post).process()
     rows = db(db.post).select()
     # for development purposes only:
     print "user_id: %s" % auth.user_id
-   
     
     posts = get_posts()
     

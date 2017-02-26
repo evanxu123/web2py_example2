@@ -19,15 +19,20 @@ def index1():
     
     return dict()
 
+@auth.requires_membership('managers')
+def manage():
+    grid = SQLFORM.grid(db.post)
+    return locals()
+
 def index():
     """
     lets users login or logout
     """
+    response.flash = 'comment accepted'
     form = SQLFORM(db.post).process()
     rows = db(db.post).select()
     # for development purposes only:
     print "user_id: %s" % auth.user_id
-   
     
     posts = get_posts()
     

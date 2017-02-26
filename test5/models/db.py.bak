@@ -41,17 +41,11 @@ auth.settings.reset_password_requires_verification = True
 # -------------------------------------------------------------------------
 # to use utcnow to get the current time
 import datetime
-db.define_table('image',
-                Field('title', unique=True),
-                Field('file', 'upload'),
-                format = '%(title)s')
 
 db.define_table('post',
                 Field('user_id', 'reference auth_user', default=auth.user_id),
                 Field('post_subject'),
                 Field('post_content', 'text'),
-                Field('first_name'),
-                Field('last_name'),
                 Field('created_on', 'datetime', default=datetime.datetime.utcnow()),
                 Field('updated_on', 'datetime', update=datetime.datetime.utcnow()),
                 )

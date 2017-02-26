@@ -28,15 +28,34 @@
 {{pass}}
 
 <p>Exciting, isn't it? </p>
-{{a=0}}
+<!--
+标题格式很难调好，总是用偏离
 <table class="table">
-    {{for row in rows:}}
-    {{a = a+1}}
     <tr>
-       
-        <td style="width: 200px">{{=row.user_id}}</td>
-        <td style="width: 600px">{{=row.post_subject}}</td>
-        <td style="width: 50px">{{=row.post_content}}</td>
+
+        <td style="width: 200px">user_id</td>
+        <td style="width: 300px">post_subject</td>
+        <td style="width: 50px">post_content</td>
+        <td style="width: 50px">first_name</td>
+        <td style="width: 50px">last_name</td>
+        <td style="width: 50px">updated_on</td>
+        <td style="width: 50px">created_on</td>
+        <td style="width: 50px">label</td>
+    </tr>
+</table>
+-->
+    
+<table class="table">
+
+    {{for row in rows:}}
+    <tr>
+        <td style="width: 50px">{{=row.user_id}}</td>
+        <td style="width: 100px">{{=row.post_subject}}</td>
+        <td style="width: 200px">{{=row.post_content}}</td>
+        <td style="width: 50px">{{=row.first_name}}</td>
+        <td style="width: 50px">{{=row.last_name}}</td>
+        <td style="width: 50px">{{=row.created_on}}</td>
+        <td style="width: 50px">{{=row.updated_on}}</td>
         <td style="width: 50px">
             {{if row.user_id==auth.user_id:}}
                <a href="{{=URL('default', 'edit_post', args=[row.id])}}">
@@ -47,8 +66,8 @@
     </tr>
     {{pass}}
 </table>
-    
-    
+
+
 
 {{if post_count > 0:}}
 <h3>Last post:</h3>

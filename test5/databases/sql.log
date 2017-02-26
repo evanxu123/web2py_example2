@@ -65,3 +65,15 @@ success!
 timestamp: 2017-02-17T03:30:17.746000
 ALTER TABLE post ADD post_subject CHAR(512);
 success!
+timestamp: 2017-02-25T17:16:31.468000
+CREATE TABLE image(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title CHAR(512) UNIQUE,
+    file CHAR(512)
+);
+success!
+timestamp: 2017-02-25T17:16:31.513000
+ALTER TABLE post ADD first_name CHAR(512);
+timestamp: 2017-02-25T17:16:31.534000
+ALTER TABLE post ADD last_name CHAR(512);
+success!
